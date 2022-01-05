@@ -1,13 +1,12 @@
 package co.com.sofka.runner.services.soap.tempConvert.celsiusToFahrenheit.test;
 
-import co.com.sofka.models.TempConvertC;
-import co.com.sofka.stepdefinition.ServiceSetup;
+import co.com.sofka.models.celsiusToFahrenheit.TempConvertC;
+import co.com.sofka.stepdefinition.ServiceSetupCelsiusToFahrenheit;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import static co.com.sofka.questions.RestumSoapServiceResponse.resturnSoapServiceResponse;
 import static co.com.sofka.tasks.DoPost.doPost;
 import static co.com.sofka.utils.FileUtilities.readFile;
@@ -18,7 +17,7 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 import static org.hamcrest.CoreMatchers.containsString;
 
 @RunWith(SerenityRunner.class)
-public class TempConvertTest extends ServiceSetup {
+public class TempConvertTest extends ServiceSetupCelsiusToFahrenheit {
 
 
     @Before

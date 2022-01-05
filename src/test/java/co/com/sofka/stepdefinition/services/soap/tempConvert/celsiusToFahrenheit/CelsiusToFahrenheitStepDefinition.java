@@ -1,14 +1,13 @@
 package co.com.sofka.stepdefinition.services.soap.tempConvert.celsiusToFahrenheit;
 
-import co.com.sofka.models.TempConvertC;
-import co.com.sofka.models.TempConvertE;
-import co.com.sofka.stepdefinition.ServiceSetup;
+import co.com.sofka.models.celsiusToFahrenheit.TempConvertC;
+import co.com.sofka.models.celsiusToFahrenheit.TempConvertE;
+import co.com.sofka.stepdefinition.ServiceSetupCelsiusToFahrenheit;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
-
 import static co.com.sofka.questions.RestumSoapServiceResponse.resturnSoapServiceResponse;
 import static co.com.sofka.tasks.DoPost.doPost;
 import static co.com.sofka.utils.FileUtilities.readFile;
@@ -18,13 +17,13 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class CelsiusToFahrenheitStepDefinition extends ServiceSetup {
+public class CelsiusToFahrenheitStepDefinition extends ServiceSetupCelsiusToFahrenheit {
 
     private static final Logger LOGGER = Logger.getLogger(CelsiusToFahrenheitStepDefinition.class);
 
+    //Escenario Congelacion
     private TempConvertC tempConvertC;
 
-    //Escenario Congelacion
     @Given("que el usuario necesita saber el punto de congelacion del agua en grados Fahrenheit")
     public void queElUsuarioNecesitaSaberElPuntoDeCongelacionDelAguaEnGradosFahrenheit() {
 
@@ -33,7 +32,6 @@ public class CelsiusToFahrenheitStepDefinition extends ServiceSetup {
         }catch (Exception exception){
             LOGGER.warn(exception.getMessage(), exception);
         }
-
 
     }
 
@@ -79,6 +77,7 @@ public class CelsiusToFahrenheitStepDefinition extends ServiceSetup {
         return tempConvertC;
     }
 
+
     private String bodyRequestC(){
         return String.format(readFile(CONVERT.getValue()), tempConvertC().getA());
 
@@ -89,10 +88,9 @@ public class CelsiusToFahrenheitStepDefinition extends ServiceSetup {
 
     }
 
-
+    //Escenario Ebullicion
     private TempConvertE tempConvertE;
 
-    //Escenario Ebullicion
     @Given("que el usuario quiere conocer punto de ebullición en grados Fahrenheit")
     public void queElUsuarioQuiereConocerPuntoDeEbullicionEnGradosFahrenheit() {
         super.setup();

@@ -10,9 +10,7 @@ public class RestumSoapServiceResponse implements Question<String> {
 
     @Override
     public String answeredBy(Actor actor) {
-        String response = new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8);
-        System.out.printf(response);
-        return response;
+        return new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8);
     }
     
     public static RestumSoapServiceResponse resturnSoapServiceResponse(){
