@@ -2,8 +2,11 @@ package co.com.sofka.stepdefinition;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.util.HashMap;
+
+import static co.com.sofka.utils.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 
 public class ServiceSetup {
 
@@ -12,6 +15,7 @@ public class ServiceSetup {
     protected final Actor actor = new Actor("Claudia");
 
     protected void setup() {
+        setUpLog4j();
         actorCan();
     }
 
@@ -26,5 +30,9 @@ public class ServiceSetup {
         return headerCollection;
     }
 
+    private void setUpLog4j(){
+        PropertyConfigurator.configure(System.getProperty("user.dir")+ LOG4J_PROPERTIES_FILE_PATH.getValue());
+
+    }
 
 }

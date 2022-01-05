@@ -19,4 +19,5 @@ public class TempConvertC {
     public void setOutcome(int outcome) {
         this.outcome = outcome;
     }
+
 }
